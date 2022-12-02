@@ -1,0 +1,103 @@
+QuizzesScore = []
+ProblemsScore = []
+ClassActivities = []
+Homework = []
+Exam1 = []
+Exam2 = []
+FinalExam = []
+
+def Main():
+    Quizzes()
+    Problems()
+    Activities()
+    Lab()
+    Exams()
+    QuizzesAverage()
+
+def Quizzes():
+    Quiz = int(input("How many quizzes are there:  "))
+    for i in range(0,Quiz):
+        Q= float(input("Enter Quiz " + str(i+1) +  " score:"))
+        while (Q<0) or (Q>=6):
+            Q = float(input("Please re-enter Quiz score:"))
+        QuizzesScore.append(Q)      
+    print(QuizzesScore) 
+
+
+
+def Problems():
+    Problems = int(input("How many problems are there:  "))
+    for i in range(0,Problems):
+        Problem = float(input("Enter Problem " + str(i+1) + " score:"))
+        while (Problem<0) or (Problem>=11):
+            Problem = float(input("Please re-enter Problem's score:"))            
+        ProblemsScore.append(Problem)
+    print(ProblemsScore)
+
+def Activities():
+    Activities = float(input("Please enter the Class Activities Score: "))
+    while (Activities<0) or (Activities >=11):
+        Activities = float(input("Please re-enter Class Activities: "))
+    ClassActivities.append(Activities)
+    print(ClassActivities)    
+
+def Lab():
+    Labs = int(input(" Please many Homework are there: "))
+    for i in range(0,Labs):
+        Lab = float(input("Enter Homework " + str(i+1) + " score:"))
+        while (Lab<0) or (Lab>=101):
+            Lab = float(input("Please re-enter Homework's score:"))            
+        Homework.append(Lab)
+    print(Homework)
+
+def Exams():
+    Test1 = float(input("Enter First Exams score:"))
+    while (Test1<0) or (Test1>=101):
+        Test1 = float(input("Please re-enter First Exams's score:"))            
+    Exam1.append(Test1)
+    print(Exam1)  
+    Test2 = float(input("Enter Second Exam's score:"))
+    while (Test2<0) or (Test2>=101):
+        Test2 = float(input("Please re-enter Second Exams's score:"))            
+    Exam2.append(Test2)
+    print(Exam2) 
+    FinalTest = float(input("Enter Final Exam's score:"))
+    while (FinalTest<0) or (FinalTest>=101):
+        FinalTest = float(input("Please re-enter Exams's score:"))            
+    FinalExam.append(FinalTest)
+    print(FinalExam) 
+
+def QuizzesAverage():
+    total_sum = sum(QuizzesScore) 
+    total_sum1 = sum(ProblemsScore)
+    total_sum2 = sum(ClassActivities)
+    total_sum3 = sum(Homework)
+    total_sum4 = sum(Exam1)
+    total_sum5 = sum(Exam2)
+    total_sum6 = sum(FinalExam)
+
+    total = total_sum * 0.05 * 10
+    total1 = total_sum1 * 0.10 
+    total2 = total_sum2 
+    total3 = total_sum3  * 0.25
+    total4 = total_sum4 * 0.15
+    total5 = total_sum5 * 0.15
+    total6 = total_sum6 * 0.20
+    final_grade = total + total1 + total2 + total3 + total4 + total5 + total6
+    print("Final grade is: " , final_grade )
+    if (90 <= final_grade <= 100):
+        print (final_grade, ': A') 
+    elif (80 <= final_grade < 90): 
+        print (final_grade, ': B')
+    elif (70 <= final_grade < 80):
+        print (final_grade, ': C')
+    elif (60 <= final_grade < 70):
+        print (final_grade, ': D')
+    elif (50 <= final_grade < 60):
+        print (final_grade, ': F')
+    else:
+        print("Invalid input")
+        
+   
+
+Main()
